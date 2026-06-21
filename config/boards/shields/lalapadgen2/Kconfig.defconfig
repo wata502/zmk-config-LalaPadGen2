@@ -1,3 +1,24 @@
+if SHIELD_LALAPADGEN2_DONGLE
+
+config ZMK_KEYBOARD_NAME
+    default "LalapadGen2"
+
+config ZMK_SPLIT_ROLE_CENTRAL
+    default y
+
+# Two peripherals: the left and right halves.
+config ZMK_SPLIT_BLE_CENTRAL_PERIPHERALS
+    default 2
+
+# 2 peripherals + host BT profiles.
+config BT_MAX_CONN
+    default 6
+
+config BT_MAX_PAIRED
+    default 6
+
+endif
+
 if SHIELD_LALAPADGEN2_RIGHT
 
 config ZMK_KEYBOARD_NAME
@@ -14,7 +35,7 @@ config BT_MAX_CONN
 
 endif
 
-if SHIELD_LALAPADGEN2_LEFT || SHIELD_LALAPADGEN2_RIGHT
+if SHIELD_LALAPADGEN2_LEFT || SHIELD_LALAPADGEN2_RIGHT || SHIELD_LALAPADGEN2_DONGLE
 
 config ZMK_SPLIT
     default y

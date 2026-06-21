@@ -1,0 +1,28 @@
+// Dongle (central). A bare XIAO nRF52840 (Plus) plugged into the host over USB.
+// It has no key matrix and no trackpad of its own: it runs the keymap, receives
+// key presses from both halves, and receives both trackpads over the split link.
+#include <dt-bindings/zmk/matrix_transform.h>
+#include "lalapadgen2-common.dtsi"
+
+/ {
+    chosen {
+        zmk,kscan = &kscan0;
+    };
+
+    // No physical keys on the dongle, so use a mock scanner. It re-uses the
+    // "kscan0" label that lalapadgen2-common.dtsi's physical layout points at.
+    kscan0: kscan_mock {
+        compatible = "zmk,kscan-mock";
+        columns = <0>;
+        rows = <0>;
+        events = <0>;
+    };
+};
+
+// Both trackpads arrive over the split link, so run both listeners here.
+&trackpad_listener_R {
+    status = "okay";
+};
+&trackpad_listener_L {
+    status = "okay";
+};

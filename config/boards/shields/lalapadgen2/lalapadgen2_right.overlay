@@ -15,10 +15,13 @@
         ;
 };
 
-&trackpad_listener_R {
+// Dongle setup: the right half is now a split PERIPHERAL. Forward its local
+// trackpad to the central (dongle) over the split link via trackpad_split_R.
+// The listeners that actually process trackpad data run on the dongle, not here.
+&trackpad_split_R {
     status = "okay";
     device = <&iqs9151>;
 };
-&trackpad_listener_L {
-    status = "okay";
+&trackpad_split_L {
+    status = "disabled";
 };
