@@ -8,7 +8,7 @@ include:
   # BLE central scanning / peripheral connection over the USB CDC console.
   - board: xiao_ble
     shield: lalapadgen2_dongle
-    cmake-args: -DCONFIG_ZMK_USB_LOGGING=y -DCONFIG_ZMK_STUDIO=n
+    cmake-args: -DCONFIG_ZMK_USB_LOGGING=y -DCONFIG_ZMK_USB=y -DCONFIG_ZMK_STUDIO=n
     artifact-name: lalapadgen2_dongle_debug
   # Halves are now peripherals. -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n flips the right
   # half (which used to be the central) to peripheral; the left was already one.
