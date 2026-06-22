@@ -19,21 +19,9 @@ config BT_MAX_PAIRED
 
 endif
 
-if SHIELD_LALAPADGEN2_RIGHT
-
-config ZMK_KEYBOARD_NAME
-    default "LalapadGen2"
-
-config ZMK_SPLIT_ROLE_CENTRAL
-    default y
-
-config ZMK_SPLIT_BLE_CENTRAL_PERIPHERALS
-    default 1
-    
-config BT_MAX_CONN
-    default 5
-
-endif
+# In the dongle setup BOTH halves are peripherals, so neither sets
+# ZMK_SPLIT_ROLE_CENTRAL (it defaults to n = peripheral). The dongle above is
+# the only central. (Previously the right half was the central.)
 
 if SHIELD_LALAPADGEN2_LEFT || SHIELD_LALAPADGEN2_RIGHT || SHIELD_LALAPADGEN2_DONGLE
 
