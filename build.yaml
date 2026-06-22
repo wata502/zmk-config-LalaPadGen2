@@ -4,25 +4,10 @@ include:
   - board: seeeduino_xiao_ble
     shield: lalapadgen2_dongle
     snippet: studio-rpc-usb-uart
-  # Diagnostic dongle: keeps the working studio USB setup AND adds USB serial
-  # logging, so the BLE central scan / peripheral connection can be observed.
-  - board: seeeduino_xiao_ble
-    shield: lalapadgen2_dongle
-    snippet: studio-rpc-usb-uart
-    cmake-args: -DCONFIG_ZMK_USB_LOGGING=y -DCONFIG_ZMK_LOG_LEVEL_DBG=y -DCONFIG_BT_LOG_LEVEL_INF=y
-    artifact-name: lalapadgen2_dongle_log
   # Both halves are peripherals (role defaults to peripheral in Kconfig).
   - board: seeeduino_xiao_ble
     shield: lalapadgen2_right rgbled_adapter
   - board: seeeduino_xiao_ble
     shield: lalapadgen2_left rgbled_adapter
-  # Diagnostic RIGHT peripheral: same peripheral role, but with USB serial
-  # logging so we can see whether the half boots fully, starts BLE advertising,
-  # and connects to the dongle (or hangs at trackpad init).
-  - board: seeeduino_xiao_ble
-    shield: lalapadgen2_right rgbled_adapter
-    snippet: studio-rpc-usb-uart
-    cmake-args: -DCONFIG_ZMK_USB_LOGGING=y
-    artifact-name: lalapadgen2_right_log
   - board: seeeduino_xiao_ble
     shield: settings_reset
