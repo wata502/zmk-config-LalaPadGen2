@@ -9,6 +9,17 @@
         zmk,kscan = &kscan0;
     };
 
+    // Status LED: reuse the XIAO's on-board RGB user LED (led0/led1/led2 are
+    // defined by the seeeduino_xiao_ble board as P0.26/P0.30/P0.06). The RGB
+    // widget needs led-red/green/blue aliases, so map them here. (The halves
+    // remap led0/1/2 to their PCB LEDs in lalapadgen2.dtsi; the dongle does not
+    // include that file, so these stay the board's on-board LED.)
+    aliases {
+        led-red = &led0;
+        led-green = &led1;
+        led-blue = &led2;
+    };
+
     // No physical keys on the dongle, so use a mock scanner. It re-uses the
     // "kscan0" label that lalapadgen2-common.dtsi's physical layout points at.
     kscan0: kscan_mock {
