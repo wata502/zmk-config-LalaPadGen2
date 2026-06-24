@@ -163,9 +163,13 @@
         };
 
         layer_8 {
+            // Auto mouse layer (activated by &zip_auto_mouse_layer on trackpad
+            // motion; see lalapadgen2-common.dtsi). Mouse buttons on W/R/Y/I and
+            // S/D/F/H/J/K; everything else &trans. Those keys are listed in
+            // excluded-positions so pressing them keeps this layer active.
             bindings = <
-&trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans
+&trans  &mkp MB4   &trans      &mkp MB5    &trans                  &mkp MB4   &trans      &mkp MB5    &trans  &trans
+&trans  &mkp LCLK  &mkp MCLK   &mkp RCLK   &trans                  &mkp LCLK  &mkp MCLK   &mkp RCLK   &trans  &trans
 &trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
         &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
